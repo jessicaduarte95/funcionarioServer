@@ -7,9 +7,13 @@ interface FuncionarioInterface {
 	dataAdmissao: string;
 }
 
-export async function getFuncionarioService() {
+export async function getFuncionarioService(data: { nome: string; cargo: string; departamento: string }) {
 	try {
-		const response = await Funcionario.find();
+		const response = await Funcionario.find({
+			nome: { $regex: '.*' + data.nome + '.*', $options: 'i' },
+			cargo: { $regex: '.*' + data.cargo + '.*', $options: 'i' },
+			departamento: { $regex: '.*' + data.departamento + '.*', $options: 'i' }
+		});
 		return response;
 	} catch (error) {
 		console.error('Erro ao carregar dados.', error);

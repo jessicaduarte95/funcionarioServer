@@ -3,8 +3,9 @@ import { getFuncionarioService, createFuncionarioService, deleteFuncionarioServi
 
 export async function getFuncionario(req: Request, res: Response) {
 	try {
-		const data = await getFuncionarioService();
-		return res.status(200).json(data);
+		const data: any = req.query;
+		const response = await getFuncionarioService(data);
+		return res.status(200).json(response);
 	} catch (error: any) {
 		return res.status(500).json({ error: 'Por favor, tente mais tarde!' });
 	}

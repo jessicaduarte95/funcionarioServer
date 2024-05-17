@@ -1,6 +1,6 @@
 import Funcionario from '../Model/Funcionario';
 
-interface FuncionarioInteface {
+interface FuncionarioInterface {
 	nome: string;
 	cargo: string;
 	departamento: string;
@@ -15,7 +15,7 @@ export async function getFuncionarioService() {
 		console.error('Erro ao carregar dados.', error);
 	}
 }
-export async function createFuncionarioService(data: FuncionarioInteface) {
+export async function createFuncionarioService(data: FuncionarioInterface) {
 	try {
 		const createFuncionario = {
 			nome: data.nome,
@@ -24,6 +24,16 @@ export async function createFuncionarioService(data: FuncionarioInteface) {
 			dataAdmissao: data.dataAdmissao
 		};
 		const response = await Funcionario.create(createFuncionario);
+
+		return response;
+	} catch (error) {
+		console.error('Erro ao adicionar funcionário.', error);
+	}
+}
+
+export async function deleteFuncionarioService(id: string) {
+	try {
+		const response = await Funcionario.deleteOne({ _id: id });
 
 		return response;
 	} catch (error) {

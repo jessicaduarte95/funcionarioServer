@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getFuncionarioService, createFuncionarioService } from '../Service/funcionarioService';
+import { getFuncionarioService, createFuncionarioService, deleteFuncionarioService } from '../Service/funcionarioService';
 
 export async function getFuncionario(req: Request, res: Response) {
 	try {
@@ -33,9 +33,9 @@ export async function updateFuncionario(req: Request, res: Response) {
 
 export async function deleteFucionario(req: Request, res: Response) {
 	try {
-		// const id: any = req.params.id;
-		// const cliente = await deleteClienteService(id);
-		return res.status(201).json();
+		const id: string = req.params.id;
+		const data = await deleteFuncionarioService(id);
+		return res.status(201).json(data);
 	} catch (error: any) {
 		return res.status(500).json({ error: 'Erro ao deletar cliente. Por favor, tente mais tarde!' });
 	}

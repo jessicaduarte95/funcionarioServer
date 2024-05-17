@@ -1,20 +1,19 @@
 import { Request, Response } from 'express';
-// import { createFuncionarioService } from '../Service/funcionarioService';
+import { getFuncionarioService, createFuncionarioService } from '../Service/funcionarioService';
 
 export async function getFuncionario(req: Request, res: Response) {
 	try {
-		// const cliente = await getClienteService();
-		return res.status(200).json();
+		const data = await getFuncionarioService();
+		return res.status(200).json(data);
 	} catch (error: any) {
 		return res.status(500).json({ error: 'Por favor, tente mais tarde!' });
 	}
 }
 
 export async function createFuncionario(req: Request, res: Response) {
-	console.log('Chegou controller!');
 	try {
-		// const data: any = req.body;
-		// const create = await createClienteService(data);
+		const data: any = req.body;
+		const create = await createFuncionarioService(data);
 		return res.status(201).json();
 	} catch (error: any) {
 		return res.status(500).json({ error: 'Erro ao adicionar funcionário. Por favor, tente novamente mais tarde!' });

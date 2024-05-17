@@ -1,10 +1,11 @@
 import router from './Routes/funcionarioRouter';
+import express from 'express';
+import cors from 'cors';
 
-const express = require('express');
+
 const app = express();
-const cors = require('cors');
-
 app.use(cors());
+
 app.use(express.json());
 
 const port: number = 5000;

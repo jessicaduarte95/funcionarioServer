@@ -2,6 +2,9 @@ import router from './Routes/funcionarioRouter';
 import express from 'express';
 import cors from 'cors';
 
+const conn = require('./database');
+
+conn(); 
 
 const app = express();
 app.use(cors());

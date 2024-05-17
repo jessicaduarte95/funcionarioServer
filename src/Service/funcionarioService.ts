@@ -21,7 +21,7 @@ export async function createFuncionarioService(data: FuncionarioInteface) {
 			nome: data.nome,
 			cargo: data.cargo,
 			departamento: data.departamento,
-			dataAdmissao: data.dataAdmissao ?? ''
+			dataAdmissao: data.dataAdmissao
 		};
 		const response = await Funcionario.create(createFuncionario);
 

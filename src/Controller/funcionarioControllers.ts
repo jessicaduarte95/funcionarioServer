@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getFuncionarioService, createFuncionarioService, deleteFuncionarioService } from '../Service/funcionarioService';
+import { getFuncionarioService, createFuncionarioService, deleteFuncionarioService, updateFuncionarioService } from '../Service/funcionarioService';
 
 export async function getFuncionario(req: Request, res: Response) {
 	try {
@@ -22,10 +22,10 @@ export async function createFuncionario(req: Request, res: Response) {
 
 export async function updateFuncionario(req: Request, res: Response) {
 	try {
-		// const data: any = req.body;
-		// const id: any = req.params.id;
-		// const cliente = await updateClienteService(data, id);
-		return res.status(201).json();
+		const data: any = req.body;
+		const id: string = req.params.id;
+		const response = await updateFuncionarioService(data, id);
+		return res.status(201).json(response);
 	} catch (error: any) {
 		return res.status(500).json({ error: 'Erro ao atualizar dados. Por favor, tente mais tarde!' });
 	}

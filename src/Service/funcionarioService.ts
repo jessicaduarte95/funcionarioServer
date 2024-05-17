@@ -31,6 +31,15 @@ export async function createFuncionarioService(data: FuncionarioInterface) {
 	}
 }
 
+export async function updateFuncionarioService(data: FuncionarioInterface, id: string) {
+	try {
+		const response = await Funcionario.findOneAndUpdate({ _id: id }, data);
+		return response;
+	} catch (error) {
+		console.error('Erro ao adicionar funcionário.', error);
+	}
+}
+
 export async function deleteFuncionarioService(id: string) {
 	try {
 		const response = await Funcionario.deleteOne({ _id: id });

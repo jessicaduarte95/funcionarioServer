@@ -13,8 +13,8 @@ export async function getFuncionario(req: Request, res: Response) {
 export async function createFuncionario(req: Request, res: Response) {
 	try {
 		const data: any = req.body;
-		const create = await createFuncionarioService(data);
-		return res.status(201).json();
+		const response = await createFuncionarioService(data);
+		return res.status(201).json({ response, msg: 'Funcionário adicionado com sucesso!' });
 	} catch (error: any) {
 		return res.status(500).json({ error: 'Erro ao adicionar funcionário. Por favor, tente novamente mais tarde!' });
 	}

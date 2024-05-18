@@ -12,7 +12,7 @@
 
 - MongoDB;
 
-- <h2 align="center">  Siga os seguintes passos para rodar o projeto </h2>
+<h2 align="center">  Siga os seguintes passos para rodar o projeto </h2>
 
 - Clone o projeto;
 
@@ -22,6 +22,6 @@
 
 - Rode o projeto: npm run dev;
 
-- <h2 align="center"> Desenvolvedora </h2>
+<h2 align="center"> Desenvolvedora </h2>
 
 <p> <strong> Jéssica Duarte </strong></p>
